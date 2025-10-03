@@ -1,0 +1,45 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  order_db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: monokera
+      POSTGRES_PASSWORD: monokera
+      POSTGRES_DB: order_db
+    ports:
+      - "5433:5432"
+
+  customer_db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: monokera
+      POSTGRES_PASSWORD: monokera
+      POSTGRES_DB: customer_db
+    ports:
+      - "5434:5432"
+
+  order_service:
+    build: ./order_service
+    env_file:
+      - ./order_service/.env
+    depends_on:
+      - rabbitmq
+      - order_db
+      - customer_service
+    ports:
+      - "3000:3000"
+
+  customer_service:
+    build: ./customer_service
+    env_file:
+      - ./customer_service/.env
+    depends_on:
+      - rabbitmq
+      - customer_db
+    ports:
+      - "3001:3001"
