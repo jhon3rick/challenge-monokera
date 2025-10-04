@@ -84,4 +84,3 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV.fetch("DB_NAME", "order_db") %>_production

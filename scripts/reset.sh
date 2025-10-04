@@ -20,3 +20,7 @@ echo "📦 Customer Service: aplicando migraciones..."
 docker-compose run --rm customer_service bundle exec rails db:drop db:create db:migrate db:seed
 
 echo "✅ ¡Bases de datos listas y migraciones aplicadas!"
+
+# correr consumidor en customer_service
+echo "📦 Rabbit:consume en ejecución..."
+docker-compose run --rm customer_service bundle exec rails rabbit:consume
