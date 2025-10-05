@@ -36,6 +36,7 @@ gem 'bunny'
 gem 'httparty'
 
 group :development do
+  # Documentar los campos de los modelos
   gem "annotate"
 end
 
