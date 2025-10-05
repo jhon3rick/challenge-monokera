@@ -48,6 +48,7 @@ docker-compose up -d --build
 ```
 
 5. Es todo, ya puedes acceder a las APIs de los servicios:
+
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
 | `GET`  | `http://localhost:3001/customers` | Listado de todos los clientes |
@@ -146,6 +147,7 @@ docker-compose down --volumes
 ## Variables de Entorno
 
 Cada servicio tiene su propio archivo `.env` con las siguientes variables:
+(los .env no fueron ignorados ya que son datos genericos de conexion y para facilitar que los revisores puedan hacer pruebas)
 
 ### Customer Service
 - `DATABASE_URL`: URL de conexión a la base de datos
