@@ -60,7 +60,7 @@ docker-compose up -d --build
 6. ejecutar test
 ```bash
 ./scripts/order_service_test.sh
-./scripts/consumer_service_test.sh
+./scripts/customer_service_test.sh
 ```
 
 ## Comandos Útiles que puedes usar en la terminal (recuerda que estan los scripts para facilitar su uso)
